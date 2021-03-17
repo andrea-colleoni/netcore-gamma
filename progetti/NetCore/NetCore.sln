@@ -13,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetFw", "AspNetFw\AspNet
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OreLavorateCore", "OreLavorateCore\OreLavorateCore.csproj", "{CD060BCA-D371-4465-B1EE-5FE1810FDA6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreLibrary", "NetCoreLibrary\NetCoreLibrary.csproj", "{1CF786D5-F4EA-4501-82FF-CD7594EF3B74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreLibrary", "NetCoreLibrary\NetCoreLibrary.csproj", "{1CF786D5-F4EA-4501-82FF-CD7594EF3B74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OreLavorateLib", "OreLavorateLib\OreLavorateLib.csproj", "{C638A542-014A-4E1D-85D8-FE7E0991E4D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{1CF786D5-F4EA-4501-82FF-CD7594EF3B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CF786D5-F4EA-4501-82FF-CD7594EF3B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CF786D5-F4EA-4501-82FF-CD7594EF3B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C638A542-014A-4E1D-85D8-FE7E0991E4D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C638A542-014A-4E1D-85D8-FE7E0991E4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C638A542-014A-4E1D-85D8-FE7E0991E4D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C638A542-014A-4E1D-85D8-FE7E0991E4D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
