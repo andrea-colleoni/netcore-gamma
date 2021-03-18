@@ -11,3 +11,5 @@ dotnet ef dbcontext scaffold "Server=(local);Database=ore-lavorate;Trusted_Conne
 
 ## Creazione migrations
 
+dotnet ef migrations add iniziale
+
