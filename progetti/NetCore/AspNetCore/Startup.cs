@@ -1,14 +1,12 @@
-using AspNetCore.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using NetCoreLibrary;
+using NetCoreLibrary.Context;
+using NetCoreLibrary.Services;
 
 namespace AspNetCore
 {
@@ -26,12 +24,14 @@ namespace AspNetCore
         {
             services.AddControllersWithViews();
 
+            services.AddNetCoreLibraryServices(Configuration);
+
             // registro un servizio
-            services.AddTransient<IPersonaService, PersonaServiceMock>();
+            // services.AddTransient<IPersonaService, PersonaService>();
             // transient => ogni volta che serve un oggetto transient, l'host ne istanzia uno (riuso degli oggetti nullo)
-            services.AddScoped<IPersonaService, PersonaServiceMock>();
+            // services.AddScoped<IPersonaService, PersonaServiceMock>();
             // scoped => un oggetto sopravvive per tutta la sessione di elaborazione corrente (tipo utilizzo, il web)
-            services.AddSingleton<IPersonaService, PersonaServiceMock>();
+            // services.AddSingleton<IPersonaService, PersonaServiceMock>();
             // singleton => un oggetto unico a livello di application
         }
 

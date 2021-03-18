@@ -1,10 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NetCoreLibrary.Model;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace NetCoreLibrary
+namespace NetCoreLibrary.Context
 {
     public class PersoneContext : DbContext
     {
@@ -21,6 +18,8 @@ namespace NetCoreLibrary
 
         public virtual DbSet<Persona> Persone { get; set; }
 
+        // questo metodo viene eseguito se non ricevo una configurazione dalla dependency injection
+        /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -31,6 +30,7 @@ namespace NetCoreLibrary
                 optionsBuilder.UseSqlServer("Server=(local);Database=20210317-persone;Trusted_Connection=True;");
             }
         }
+        */
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,11 +1,12 @@
-﻿using AspNetCore.Models;
+﻿using NetCoreLibrary;
+using NetCoreLibrary.Context;
 using NetCoreLibrary.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNetCore.Services
+namespace NetCoreLibrary.Services
 {
     public interface IPersonaService
     {
@@ -27,13 +28,15 @@ namespace AspNetCore.Services
 
     public class PersonaService : IPersonaService
     {
+        private PersoneContext ctx;
+        public PersonaService(PersoneContext ctx)
+        {
+            this.ctx = ctx;
+        }
+
         public Persona PersonaDiTest()
         {
-            var p = new Persona();
-            p.Nome = "Mario (vero)";
-            p.Cognome = "Rossi";
-            p.Email = "mario@rossi.it";
-
+            var p = ctx.Persone.Find("mario@rossi.it");
             return p;
         }
     }
