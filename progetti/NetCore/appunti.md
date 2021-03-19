@@ -20,4 +20,7 @@ dotnet ef database update
 # Links
 
 - https://microservices.io/
+- https://jwt.io/
+- https://en.wikipedia.org/wiki/Mediator_pattern
+- https://docs.microsoft.com/it-it/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/microservice-application-layer-implementation-web-api#the-command-process-pipeline-how-to-trigger-a-command-handler
 
