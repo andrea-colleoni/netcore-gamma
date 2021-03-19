@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NetCoreLibrary.Model;
 
 namespace NetCoreLibrary.Context
 {
-    public class PersoneContext : DbContext
+    public class PersoneContext : IdentityDbContext
     {
 
         public PersoneContext()
@@ -19,7 +20,7 @@ namespace NetCoreLibrary.Context
         public virtual DbSet<Persona> Persone { get; set; }
 
         // questo metodo viene eseguito se non ricevo una configurazione dalla dependency injection
-        /*
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -30,10 +31,12 @@ namespace NetCoreLibrary.Context
                 optionsBuilder.UseSqlServer("Server=(local);Database=20210317-persone;Trusted_Connection=True;");
             }
         }
-        */
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Persona>()
                 .HasKey(p => p.Email);
 

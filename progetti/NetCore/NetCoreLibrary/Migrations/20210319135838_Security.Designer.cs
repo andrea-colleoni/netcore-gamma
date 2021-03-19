@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetCoreLibrary.Context;
 
 namespace NetCoreLibrary.Migrations
 {
     [DbContext(typeof(PersoneContext))]
-    partial class PersoneContextModelSnapshot : ModelSnapshot
+    [Migration("20210319135838_Security")]
+    partial class Security
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
