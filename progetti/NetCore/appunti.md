@@ -13,3 +13,7 @@ dotnet ef dbcontext scaffold "Server=(local);Database=ore-lavorate;Trusted_Conne
 
 dotnet ef migrations add iniziale
 
+# Links
+
+- https://microservices.io/
+

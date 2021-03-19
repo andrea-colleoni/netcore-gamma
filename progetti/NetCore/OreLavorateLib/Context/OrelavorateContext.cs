@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OreLavorateLib.Model;
+using System.Collections.Generic;
 
 #nullable disable
 

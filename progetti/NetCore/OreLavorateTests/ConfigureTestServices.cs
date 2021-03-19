@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OreLavorateLib;
 using OreLavorateLib.Context;
+using OreLavorateStdAPIClient;
 using System;
 
 namespace OreLavorateTests

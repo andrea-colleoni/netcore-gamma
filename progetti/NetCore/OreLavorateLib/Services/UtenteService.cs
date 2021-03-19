@@ -14,6 +14,7 @@ namespace OreLavorateLib.Services
         Task save(Utente utente);
         Task<Utente> byUsername(string username);
         Task delete(string username);
+        Task<bool> exists(string username);
     }
     public class UtenteService: IUtenteService
     {
@@ -71,6 +72,11 @@ namespace OreLavorateLib.Services
                 _ctx.Remove(u);
                 await _ctx.SaveChangesAsync();
             }
+        }
+
+        public async Task<bool> exists(string username)
+        {
+            return await _ctx.Utentes.AnyAsync(u => u.Username == username);
         }
     }
 }
