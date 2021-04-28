@@ -1,0 +1,16 @@
+<app-hero-detail *ngIf="selectedHero; else nessunEroe" [selectedHero]="selectedHero"></app-hero-detail>
+<ng-template #nessunEroe>
+    <div>
+        Selezionare un eroe per vedere i dettagli
+    </div>
+</ng-template>
+<ul class="heroes">
+    <li *ngFor="let h of heroes" 
+        (click)="selectHero(h)"
+        [class.selected]="h === selectedHero">
+        <span class="badge">{{h.id}}</span> {{h.name}}
+    </li>
+</ul>
+<ol>
+    <li *ngFor="let msg of messagesService.messaggi() | async">{{msg}}</li>
+</ol>
