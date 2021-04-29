@@ -10,6 +10,7 @@
 
 - https://angular.io/
 - http://reactivex.io/
+- https://www.typescriptlang.org/
 
 ## Comandi
 

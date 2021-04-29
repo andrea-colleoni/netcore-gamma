@@ -1,14 +1,15 @@
-# Esercizio gg 1
+# Esercizio gg 2
 
-- Crea una nuova app angular chiamata blog-ng
-- Titolo dell'app = 'Blog' da mettere nell'app component
-- Componenti:
-  - Elenco post: visualizza un elenco di Post (vedi modello) in una table html (senza body)
-  - Dettaglio: Cliccando su una row della table viene visualizzato un div con title e body
-- Servizi:
-  - PostService: fornisce un Observable<Post[]> con l'elenco dei post preso dai Mock posts
-- Modello:
-  - Post: id: number, userId: number, title: string, body: string
+- Aggiungere all'esercizio del gg 1 le seguenti feature:
 
-- Test objects:
-  - Mock posts: un array con qualche Post
+- Navigazione:
+  - Deve essere possibile vedere il dettaglio di un post in un componente dedicato raggiungibile tramite URL
+  - L'elenco dei posts deve essere l'URL visualizzato di default
+  - Il componente del singolo post deve riportare anche:
+    - I commenti al post
+    - Le informazioni dettagliate dell'utente che ha scritto il post (nome, cognome, emai, company e country)
+
+- Uso dell'API REST di https://jsonplaceholder.typicode.com/
+  - Caricare i post dall'API
+  - Caricare il singolo post e i relativi commenti dall'API
+  

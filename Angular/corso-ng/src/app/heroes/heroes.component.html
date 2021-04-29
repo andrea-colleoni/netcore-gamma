@@ -1,7 +1,18 @@
+<div>
+  <label id="new-hero">Hero name: </label>
+  <input for="new-hero" #heroName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" (click)="add(heroName.value); heroName.value = ''">
+    Add hero
+  </button>
+</div>
 <ul class="heroes">
-    <li *ngFor="let h of heroes" 
-        (click)="selectHero(h)"
-        [class.selected]="h === selectedHero">
-        <span class="badge">{{h.id}}</span> {{h.name}}
-    </li>
+  <li
+    *ngFor="let h of heroes"
+    (click)="selectHero(h)"
+    [class.selected]="h === selectedHero"
+  >
+    <span class="badge">{{ h.id }}</span> {{ h.name }}
+  </li>
 </ul>

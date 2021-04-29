@@ -28,9 +28,21 @@ namespace HeroesAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "HeroesCORS",
+                                  builder =>
+                                  {
+                                      builder
+                                      .WithOrigins("*")
+                                      .AllowAnyMethod()
+                                      .AllowAnyHeader();
+                                  });
+            });
+
             services.AddDbContext<HeroesDb>(o =>
-                // o.UseSqlServer(Configuration.GetConnectionString("HeroesDb"))
-                o.UseInMemoryDatabase("InMemory")
+                o.UseSqlServer(Configuration.GetConnectionString("HeroesDb"))
+                // o.UseInMemoryDatabase("InMemory")
             );
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -52,6 +64,8 @@ namespace HeroesAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("HeroesCORS");
 
             app.UseAuthorization();
 

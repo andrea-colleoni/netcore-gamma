@@ -21,7 +21,7 @@ export class HeroesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.heroesService.getHeroes().subscribe(heroes => this.heroes = heroes);
+    this.loadHeroes();
   }
 
   selectHero(hero: Hero) {
@@ -29,6 +29,25 @@ export class HeroesComponent implements OnInit {
     this.router.navigate(['hero', hero.id]);
     // back-tick: ALT + 96
     this.messagesService.nuovoMessaggio(`Selezionato l'eroe ${hero.name}`);
+  }
+
+  add(heroName: string) {
+    const hero: Hero = {
+      id: 0,
+      name: heroName,
+    };
+    this.heroesService
+    .insert(hero)
+    .subscribe(r => {
+      console.log(r);
+      this.loadHeroes();
+    });
+  }
+
+  private loadHeroes() {
+    this.heroesService.getHeroes().subscribe(
+      heroes => this.heroes = heroes,
+    );    
   }
 
 }

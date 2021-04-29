@@ -36,4 +36,8 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save() {
+    this.hs.update(this.hero).subscribe(r => console.log(r));
+  }
+
 }

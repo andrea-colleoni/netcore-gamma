@@ -22,8 +22,4 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  test() {
-    this.hs.httpTest();
-  }
-
 }
