@@ -1,6 +1,18 @@
-<h2>{{ selectedHero.name | uppercase }} Details</h2>
-<div><span>id: </span>{{ selectedHero.id }}</div>
-<div>
-  <label for="name">Hero name: </label>
-  <input id="name" [(ngModel)]="selectedHero.name" placeholder="name" />
+<button (click)="goBack()">Go back</button>
+&nbsp;
+<button [routerLink]="'../' + (id - 1)"> &lt;&lt; </button>
+&nbsp;
+<button [routerLink]="'../' + (id + 1)"> &gt;&gt; </button>
+<div *ngIf="hero; else nessunEroe">
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ hero.id }}</div>
+  <div>
+    <label for="name">Hero name: </label>
+    <input id="name" [(ngModel)]="hero.name" placeholder="name" />
+  </div>
 </div>
+<ng-template #nessunEroe>
+  <div>
+      Selezionare un eroe per vedere i dettagli
+  </div>
+</ng-template>

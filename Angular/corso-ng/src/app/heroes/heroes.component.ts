@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HeroesService } from '../heroes.service';
 import { MessagesService } from '../messages.service';
 import { Hero } from '../model/hero';
@@ -10,12 +11,13 @@ import { Hero } from '../model/hero';
 })
 export class HeroesComponent implements OnInit {
 
-  selectedHero: Hero;
   heroes: Hero[] = [];
 
   constructor(
     private heroesService: HeroesService, 
-    public messagesService: MessagesService) { 
+    private messagesService: MessagesService,
+    private router: Router,
+    ) { 
   }
 
   ngOnInit(): void {
@@ -23,7 +25,8 @@ export class HeroesComponent implements OnInit {
   }
 
   selectHero(hero: Hero) {
-    this.selectedHero = hero;
+    // navigazione di un router link da codice
+    this.router.navigate(['hero', hero.id]);
     // back-tick: ALT + 96
     this.messagesService.nuovoMessaggio(`Selezionato l'eroe ${hero.name}`);
   }
