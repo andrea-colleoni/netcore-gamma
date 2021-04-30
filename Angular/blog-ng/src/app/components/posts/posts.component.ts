@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/model/post';
 import { PostService } from 'src/app/services/post.service';
 
@@ -14,6 +15,7 @@ export class PostsComponent implements OnInit {
 
   constructor(
     private ps: PostService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -21,6 +23,7 @@ export class PostsComponent implements OnInit {
   }
 
   selectPost(post: Post) {
+    this.router.navigate(['post', post.id]);
     this.selectedPost = post;
   }
 

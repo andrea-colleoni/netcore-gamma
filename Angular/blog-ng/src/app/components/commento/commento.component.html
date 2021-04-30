@@ -1,0 +1,27 @@
+<h3>Commento</h3>
+<form [formGroup]="commentoForm" (ngSubmit)="onSubmit()">
+    <label>Id</label>
+    <input formControlName="id" type="number" required readonly>
+    <br>
+    <label>Id Post</label>
+    <input formControlName="postId" type="number" required readonly> 
+    <br>
+    <label>Name</label>
+    <input formControlName="name" type="text" required placeholder="Inserire il nome">
+        {{f.name.status}} - {{f.name.valid}}
+    <div *ngIf="f.name.dirty && f.name.errors">
+        <p *ngIf="f.name.errors.required">Il campo nome è obbligatorio</p>
+        <p *ngIf="f.name.errors.minlength">Per il campo nome ci vogliono almeno 5 caratteri</p>
+    </div>
+    <br>
+    <label>Email</label>
+    <input formControlName="email" type="email" required placeholder="Inserire l'email">
+    <br>
+    <label>Body</label>
+    <textarea 
+        formControlName="body" 
+        placeholder="Digitare qui il commento..."
+        [disabled]="f.email.errors"></textarea>
+    <br>
+    <button type="submit" [disabled]="!commentoForm.valid">Salva il commento</button>
+</form>

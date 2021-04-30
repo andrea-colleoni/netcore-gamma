@@ -1,0 +1,8 @@
+<h3>Commenti</h3>
+<div>
+  <ul>
+    <li *ngFor="let cm of comments">{{cm.name}} ({{cm.email}})</li>
+  </ul>
+</div>
+<button (click)="aggiungiCommento()">Aggiungi commento</button>
+<app-commento [commento]="commento" *ngIf="commento"></app-commento>

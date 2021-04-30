@@ -1,0 +1,23 @@
+.ng-dirty {
+
+}
+
+.ng-touched {
+
+}
+
+.ng-touched .ng-invalid {
+    border: 1px solid red;
+}
+
+.ng-untouched {
+
+}
+
+.ng-pristine {
+
+}
+
+.ng-valid {
+    border: 1px solid green;
+}

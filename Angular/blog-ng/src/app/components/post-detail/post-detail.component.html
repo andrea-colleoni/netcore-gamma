@@ -1,4 +1,16 @@
-<h1>{{post.title}}</h1>
-<div>
-    {{post.body}}
+<div *ngIf="post">
+  <h2>{{ post.title }}</h2>
+  <div>
+    {{ post.body }}
+  </div>
+
+  <app-commenti [postId]="post.id"></app-commenti>
+
+  <h3>Dettagli utente</h3>
+  <div *ngIf="user">
+    <p>Nome: {{user.name}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Campany: {{user.company.name}}</p>
+    <p>City: {{user.address.city}}</p>
+  </div>
 </div>
