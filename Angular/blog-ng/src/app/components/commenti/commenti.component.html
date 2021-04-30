@@ -4,5 +4,5 @@
     <li *ngFor="let cm of comments">{{cm.name}} ({{cm.email}})</li>
   </ul>
 </div>
-<button (click)="aggiungiCommento()">Aggiungi commento</button>
+<button class="btn btn-secondary" (click)="aggiungiCommento()">Aggiungi commento</button>
 <app-commento [commento]="commento" *ngIf="commento"></app-commento>

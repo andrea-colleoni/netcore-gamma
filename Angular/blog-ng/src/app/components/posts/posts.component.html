@@ -1,17 +1,42 @@
-<h2>Elenco dei posts</h2>
-<table>
-    <thead>
+<p-table #dt1 styleClass="p-datatable-sm p-datatable-striped" [value]="posts"
+        [paginator]="true" [rows]="8" [showCurrentPageReport]="true" 
+        currentPageReportTemplate="Mostrando da {first} a {last} di {totalRecords} post" 
+        [rowsPerPageOptions]="[8,16,32]"
+        dataKey="id"
+        [globalFilterFields]="['title']">
+    <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <button pButton label="Clear" class="p-button-outlined" 
+                    icon="pi pi-filter-slash" (click)="dt1.clear();txtSearch.value='';"></button>
+            <span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" #txtSearch
+                (input)="dt1.filterGlobal($event.target.value, 'contains')" 
+                placeholder="Search keyword" />
+            </span>
+            <button type="button" pButton 
+            pRipple icon="pi pi-file-excel" 
+            (click)="exportExcel()" class="p-button-success p-mr-2"  
+            pTooltip="XLS" tooltipPosition="bottom"></button>
+            <button type="button" pButton 
+            pRipple icon="pi pi-file-pdf" 
+            class="p-button-warning p-mr-2" 
+            pTooltip="PDF" tooltipPosition="bottom"></button>            
+        </div>
+    </ng-template>    
+    <ng-template pTemplate="header">
         <tr>
-            <th>Id</th>
-            <th>Id utente</th>
-            <th>Titolo</th>
+            <th *ngFor="let col of cols" 
+                pSortableColumn="{{col.field}}">
+                {{col.header}} <p-sortIcon field="{{col.field}}"></p-sortIcon>
+
+                <p-columnFilter type="text" field="{{col.field}}" display="menu"></p-columnFilter>
+            </th>
         </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let post of posts" (click)="selectPost(post)" [class.selected]="post === selectedPost">
-            <td>{{post.id}}</td>
-            <td>{{post.userId}}</td>
-            <td>{{post.title}}</td>
+    </ng-template>
+    <ng-template pTemplate="body" let-post>
+        <tr (click)="selectPost(post)" [class.selected]="post === selectedPost">
+            <td *ngFor="let col of cols">{{post[col.field]}}</td>
         </tr>
-    </tbody>
-</table>
+    </ng-template>
+</p-table>
